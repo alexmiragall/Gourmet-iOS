@@ -1,17 +1,17 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, ‘9.2’
+platform :ios, '8.0'
 # Uncomment this line if you're using Swift
-use_frameworks!
+# use_frameworks!
 
-target 'gourmet' do
+target 'Gourmet' do
 pod 'Firebase', '>= 2.5.0'
 end
 
-target 'gourmetTests' do
+target 'GourmetTests' do
 pod 'Firebase', '>= 2.5.0'
 end
 
-target 'gourmetUITests' do
+target 'GourmetUITests' do
 pod 'Firebase', '>= 2.5.0'
 end
 
