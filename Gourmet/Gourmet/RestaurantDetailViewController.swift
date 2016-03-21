@@ -7,13 +7,20 @@
 //
 
 import UIKit
-import Firebase
+import AlamofireImage
 
 class RestaurantDetailViewController: UIViewController {
+    
+    @IBOutlet var backgroundImage: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var addressLabel: UILabel!
+    
+    var restaurant:Restaurant!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadRestaurant()
+        printRestaurant()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -25,26 +32,17 @@ class RestaurantDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func loadRestaurant() {
-        let firebase = Firebase(url: "https://tuenti-restaurants.firebaseio.com/restaurants")
-        NSLog("Opening Resto")
-        firebase.observeEventType(.Value,
-            withBlock: { snapshot in
-                var restaurants = [Restaurant]()
-                for child in (snapshot.children.allObjects as? [FDataSnapshot])! {
-                    let restaurant: Restaurant = Restaurant()
-                    restaurant.name = child.value.objectForKey("name") as? String
-                    restaurant.description = child.value.objectForKey("description") as? String
-                    restaurant.address = child.value.objectForKey("address") as? String
-                    restaurant.photo = child.value?.objectForKey("photo") as? String
-                    restaurant.lat = child.value?.objectForKey("lat") as? Double
-                    restaurant.lon = child.value?.objectForKey("lon") as? Double
-                    restaurants.append(restaurant)
-                }
-        })
-        
+    func printRestaurant() {
+        titleLabel.text = restaurant.name
+        addressLabel.text = restaurant.address
+        descriptionLabel.text = restaurant.description
+        if let
+            imageUrl = restaurant.photo,
+            url = NSURL(string: imageUrl)
+        {
+            backgroundImage.af_setImageWithURL(url, filter: AspectScaledToFillSizeFilter(size: CGSize(width: backgroundImage.frame.width, height: backgroundImage.frame.height)))
+        }
     }
-    
 
     /*
     // MARK: - Navigation
