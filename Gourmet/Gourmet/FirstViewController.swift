@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import MapKit
 import Firebase
 import AlamofireImage
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
     
+    @IBOutlet
+    var mapView: MKMapView!
     
     @IBOutlet
     var tableView: UITableView!
@@ -20,19 +23,37 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var items: [Restaurant] = [Restaurant]()
 
+    @IBAction func viewChanged(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            tableView.hidden = true
+            mapView.hidden = false
+        } else {
+            tableView.hidden = false
+            mapView.hidden = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "RestaurantTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: RestaurantTableViewCell.name)
+        mapView.delegate = self
         getRestaurants()
        
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueToRestaurantDetail" {
             let viewController = segue.destinationViewController as! RestaurantDetailViewController
             viewController.hidesBottomBarWhenPushed = true
             viewController.restaurant = sender as? Restaurant
         }
+    }
+    
+    internal func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        let region = MKCoordinateRegionMakeWithDistance (
+            userLocation.location!.coordinate, 50, 50)
+        mapView.setRegion(region, animated: true)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -64,8 +85,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.items.appendContentsOf($0)
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
+                self.updateMap()
             })
         })
+    }
+    
+    func updateMap() {
+        for rest in items {
+            mapView.addAnnotation(RestaurantItem(title: rest.name, coordinate: CLLocationCoordinate2D(latitude: rest.lat!, longitude: rest.lon!), info: rest.description))
+        }
     }
 }
 

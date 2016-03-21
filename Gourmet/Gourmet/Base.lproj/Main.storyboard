@@ -18,6 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="320" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WjU-Ej-2Cy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="vlh-ea-r3P"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="q4x-Ez-FSZ"/>
+                                </connections>
+                            </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
                                 <rect key="frame" x="221" y="279" width="157.5" height="41.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -38,25 +46,38 @@
                                     <segue destination="Xac-ge-l4z" kind="show" identifier="segueToRestaurantDetail" id="CLR-qM-tnI"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="320" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WjU-Ej-2Cy">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjb-7K-zHD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OgE-6c-l7f">
+                                <rect key="frame" x="120" y="78" width="360" height="29"/>
+                                <segments>
+                                    <segment title="Map"/>
+                                    <segment title="List"/>
+                                </segments>
                                 <connections>
-                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="vlh-ea-r3P"/>
-                                    <outlet property="delegate" destination="9pv-A4-QxB" id="q4x-Ez-FSZ"/>
+                                    <action selector="viewChanged:" destination="9pv-A4-QxB" eventType="valueChanged" id="QO4-iE-mQ4"/>
                                 </connections>
-                            </tableView>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WjU-Ej-2Cy" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="4PH-uU-Nik"/>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fjb-7K-zHD" secondAttribute="trailing" constant="-20" id="7V3-du-WWh"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="fjb-7K-zHD" secondAttribute="bottom" constant="-49" id="8sg-ll-dLx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WjU-Ej-2Cy" secondAttribute="trailing" constant="-20" id="F2K-f0-Heg"/>
+                            <constraint firstItem="fjb-7K-zHD" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="Hyb-18-3Bd"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="WjU-Ej-2Cy" secondAttribute="bottom" constant="-49" id="Nhv-if-p4C"/>
                             <constraint firstItem="WjU-Ej-2Cy" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-64" id="RzM-pU-Mih"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OgE-6c-l7f" secondAttribute="trailing" constant="100" id="SNd-44-vLW"/>
+                            <constraint firstItem="OgE-6c-l7f" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="14" id="SNy-Aw-ONB"/>
+                            <constraint firstItem="OgE-6c-l7f" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="100" id="Wka-LI-qG0"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="fjb-7K-zHD" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-64" id="mXv-Tc-rhh"/>
+                            <constraint firstItem="OgE-6c-l7f" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="t40-XR-Dee"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -74,6 +95,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="K9V-Sq-kxi"/>
                     <connections>
+                        <outlet property="mapView" destination="fjb-7K-zHD" id="bxQ-gC-D8P"/>
                         <outlet property="tableView" destination="WjU-Ej-2Cy" id="S9Q-ki-CiG"/>
                     </connections>
                 </viewController>
