@@ -1,4 +1,4 @@
-//
+    //
 //  FirstViewController.swift
 //  gourmet
 //
@@ -11,13 +11,15 @@ import MapKit
 import Firebase
 import AlamofireImage
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet
     var mapView: MKMapView!
     
     @IBOutlet
     var tableView: UITableView!
+    
+    let locationManager = CLLocationManager()
     
     let restaurantRepository: RestaurantsRepository = RestaurantsRepository()
     
@@ -37,6 +39,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         let nib = UINib(nibName: "RestaurantTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: RestaurantTableViewCell.name)
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
         mapView.delegate = self
         getRestaurants()
        
@@ -50,9 +55,18 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    internal func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        switch status {
+        case .Authorized, .AuthorizedWhenInUse:
+            manager.startUpdatingLocation()
+            self.mapView.showsUserLocation = true
+        default: break
+        }
+    }
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         let region = MKCoordinateRegionMakeWithDistance (
-            userLocation.location!.coordinate, 50, 50)
+            userLocation.location!.coordinate, 10000, 10000)
         mapView.setRegion(region, animated: true)
     }
     
