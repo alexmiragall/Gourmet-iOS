@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		0E568C7235AAEC02128CA144 /* Pods_gourmetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54EFA8204BC4A8E855FFA8CC /* Pods_gourmetUITests.framework */; };
 		9429AD0FE9F1DD2335BBC5F5 /* Pods_gourmetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281DC1DE7098A781D8BB9389 /* Pods_gourmetTests.framework */; };
+		C10363BC1CA48F8600591AFC /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10363BB1CA48F8600591AFC /* EventRepository.swift */; };
+		C10363BE1CA48FFD00591AFC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10363BD1CA48FFD00591AFC /* User.swift */; };
+		C10363C11CA490B400591AFC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10363C01CA490B400591AFC /* Event.swift */; };
+		C10363C31CA4933800591AFC /* RestaurantMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10363C21CA4933800591AFC /* RestaurantMapper.swift */; };
+		C10363C51CA4957100591AFC /* EventMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10363C41CA4957100591AFC /* EventMapper.swift */; };
+		C10363C71CA4981300591AFC /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10363C61CA4981300591AFC /* UserMapper.swift */; };
 		C15267B31C98B22000C06752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15267B21C98B22000C06752 /* AppDelegate.swift */; };
 		C15267B51C98B22000C06752 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15267B41C98B22000C06752 /* FirstViewController.swift */; };
 		C15267B71C98B22000C06752 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15267B61C98B22000C06752 /* SecondViewController.swift */; };
@@ -51,6 +57,12 @@
 		6CD41B13EF1A516478BC0304 /* Pods-gourmetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gourmetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-gourmetUITests/Pods-gourmetUITests.release.xcconfig"; sourceTree = "<group>"; };
 		96A7AEBF14E2338B575D7759 /* Pods_gourmet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gourmet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3CAC176FBF69E06B3F3D69 /* Pods-gourmetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gourmetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gourmetTests/Pods-gourmetTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C10363BB1CA48F8600591AFC /* EventRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventRepository.swift; path = repositories/EventRepository.swift; sourceTree = "<group>"; };
+		C10363BD1CA48FFD00591AFC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
+		C10363C01CA490B400591AFC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = models/Event.swift; sourceTree = "<group>"; };
+		C10363C21CA4933800591AFC /* RestaurantMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMapper.swift; sourceTree = "<group>"; };
+		C10363C41CA4957100591AFC /* EventMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMapper.swift; sourceTree = "<group>"; };
+		C10363C61CA4981300591AFC /* UserMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
 		C15267AF1C98B22000C06752 /* gourmet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gourmet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15267B21C98B22000C06752 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C15267B41C98B22000C06752 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +138,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C10363BF1CA4900700591AFC /* models */ = {
+			isa = PBXGroup;
+			children = (
+				C10363BD1CA48FFD00591AFC /* User.swift */,
+				C10363C01CA490B400591AFC /* Event.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 		C15267A61C98B22000C06752 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +172,7 @@
 		C15267B11C98B22000C06752 /* gourmet */ = {
 			isa = PBXGroup;
 			children = (
+				C10363BF1CA4900700591AFC /* models */,
 				C1F2BAE91CA0865700F77866 /* views */,
 				C1F2BAE81CA0841000F77866 /* repositories */,
 				C15267B21C98B22000C06752 /* AppDelegate.swift */,
@@ -190,6 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				C1F2BAE61CA083F100F77866 /* RestaurantsRepository.swift */,
+				C10363BB1CA48F8600591AFC /* EventRepository.swift */,
+				C10363C21CA4933800591AFC /* RestaurantMapper.swift */,
+				C10363C41CA4957100591AFC /* EventMapper.swift */,
+				C10363C61CA4981300591AFC /* UserMapper.swift */,
 			);
 			name = repositories;
 			sourceTree = "<group>";
@@ -466,13 +492,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1F2BAE71CA083F100F77866 /* RestaurantsRepository.swift in Sources */,
+				C10363C11CA490B400591AFC /* Event.swift in Sources */,
 				C1F2BAEB1CA0867600F77866 /* RestaurantTableViewCell.swift in Sources */,
 				C15267E51C98B92A00C06752 /* Restaurant.swift in Sources */,
 				C15267B71C98B22000C06752 /* SecondViewController.swift in Sources */,
+				C10363BC1CA48F8600591AFC /* EventRepository.swift in Sources */,
 				C15267B31C98B22000C06752 /* AppDelegate.swift in Sources */,
+				C10363C71CA4981300591AFC /* UserMapper.swift in Sources */,
 				C15267E31C98B4A200C06752 /* RestaurantDetailViewController.swift in Sources */,
 				C15267B51C98B22000C06752 /* FirstViewController.swift in Sources */,
+				C10363C51CA4957100591AFC /* EventMapper.swift in Sources */,
+				C10363BE1CA48FFD00591AFC /* User.swift in Sources */,
 				C1F2BAEF1CA0B60000F77866 /* RestaurantItem.swift in Sources */,
+				C10363C31CA4933800591AFC /* RestaurantMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,10 @@ import Firebase
 
 class RestaurantsRepository {
     
+    let restMapper: RestaurantMapper
+    
     init() {
+        restMapper = RestaurantMapper()
     }
     
     func getRestaurants(callback: [Restaurant] -> Void) {
@@ -21,13 +24,7 @@ class RestaurantsRepository {
             withBlock: { snapshot in
                 var restaurants = [Restaurant]()
                 for child in (snapshot.children.allObjects as? [FDataSnapshot])! {
-                    let restaurant: Restaurant = Restaurant()
-                    restaurant.name = child.value.objectForKey("name") as? String
-                    restaurant.description = child.value.objectForKey("description") as? String
-                    restaurant.address = child.value.objectForKey("address") as? String
-                    restaurant.photo = child.value?.objectForKey("photo") as? String
-                    restaurant.lat = child.value?.objectForKey("lat") as? Double
-                    restaurant.lon = child.value?.objectForKey("lon") as? Double
+                    let restaurant: Restaurant = self.restMapper.map(child)
                     restaurants.append(restaurant)
                 }
                 
