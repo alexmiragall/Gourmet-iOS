@@ -8,11 +8,20 @@
 import Foundation
 import Firebase
 
-class EventRepository {
+public protocol EventRepositoryListener {
+    func addedEvent(event: Event)
+    func removedEvent(event: Event)
+}
+
+public class EventRepository {
     let eventMapper: EventMapper
+    var listener: EventRepositoryListener
     
-    init() {
+    init(listener: EventRepositoryListener) {
         eventMapper = EventMapper()
+        self.listener = listener
+        
+        initListener()
     }
     
     func getEvents(callback: [Event] -> Void) {
@@ -27,6 +36,21 @@ class EventRepository {
                 }
                 
                 callback(events)
+        })
+    }
+    
+    func initListener() {
+        let firebase = Firebase(url: "https://tuenti-restaurants.firebaseio.com/events")
+        firebase.observeEventType( .ChildAdded,
+            withBlock: { snapshot in
+                let event = self.eventMapper.map(snapshot)
+                self.listener.addedEvent(event)
+        })
+        
+        firebase.observeEventType( .ChildRemoved,
+            withBlock: { snapshot in
+                let event = self.eventMapper.map(snapshot)
+                self.listener.removedEvent(event)
         })
     }
 }

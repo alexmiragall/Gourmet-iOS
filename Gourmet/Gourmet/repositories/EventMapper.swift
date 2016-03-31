@@ -20,11 +20,11 @@ class EventMapper {
     }
     
     func map(snapshot: FDataSnapshot) -> Event {
-        let restaurantSnapshot = snapshot.value.objectForKey("restaurant") as! FDataSnapshot
+        let restaurantSnapshot = snapshot.childSnapshotForPath("restaurant") as FDataSnapshot
         let restaurant = restMapper.map(restaurantSnapshot)
         let date: Int = snapshot.value.objectForKey("date") as! Int
-        let owner: User = userMapper.map(snapshot.value.objectForKey("date") as! FDataSnapshot)
-        let comment: String? = snapshot.value.objectForKey("date") as? String
+        let owner: User = userMapper.map(snapshot.childSnapshotForPath("owner") as FDataSnapshot)
+        let comment: String? = snapshot.value.objectForKey("comment") as? String
         
         let event: Event = Event(restaurant: restaurant, date: date, owner: owner, comment: comment, occupants: nil)
         return event

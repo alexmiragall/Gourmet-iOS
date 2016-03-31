@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Event {
+public class Event: NSObject {
     var restaurant: Restaurant
     var date: Int
     var owner: User
@@ -22,4 +22,5 @@ public class Event {
         self.comment = comment
         self.occupants = occupants
     }
+    
 }
