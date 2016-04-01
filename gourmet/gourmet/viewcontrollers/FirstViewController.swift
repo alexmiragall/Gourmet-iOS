@@ -21,9 +21,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     let locationManager = CLLocationManager()
     
-    let restaurantRepository: RestaurantsRepository = RestaurantsRepository()
+    var restaurantRepository: RestaurantsRepository!
     
-    var items: [Restaurant] = [Restaurant]()
+    var items: [Restaurant] = []
 
     @IBAction func viewChanged(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -37,6 +37,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        restaurantRepository = RestaurantsRepository()
         let nib = UINib(nibName: "RestaurantTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: RestaurantTableViewCell.name)
         locationManager.delegate = self
@@ -95,7 +96,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func getRestaurants() {
-        restaurantRepository.getRestaurants({
+        restaurantRepository.getItems({
             self.items.appendContentsOf($0)
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()

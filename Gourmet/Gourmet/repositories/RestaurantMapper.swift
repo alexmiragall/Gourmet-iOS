@@ -20,4 +20,15 @@ class RestaurantMapper {
         restaurant.lon = snapshot.value?.objectForKey("lon") as? Double
         return restaurant
     }
+    
+    func mapInverse(restaurant: Restaurant) -> Dictionary<String, AnyObject> {
+        var dictionary = Dictionary<String, AnyObject>()
+        dictionary["name"] = restaurant.name
+        dictionary["description"] = restaurant.description
+        dictionary["address"] = restaurant.address
+        dictionary["photo"] = restaurant.photo
+        dictionary["lat"] = restaurant.lat
+        dictionary["lon"] = restaurant.lon
+        return dictionary
+    }
 }

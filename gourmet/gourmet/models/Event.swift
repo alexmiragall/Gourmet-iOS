@@ -10,12 +10,12 @@ import Foundation
 
 public class Event: NSObject {
     var restaurant: Restaurant
-    var date: Int
+    var date: Double
     var owner: User
     var comment: String?
     var occupants: [User]?
     
-    init(restaurant: Restaurant, date: Int, owner: User, comment: String?, occupants: [User]?) {
+    init(restaurant: Restaurant, date: Double, owner: User, comment: String?, occupants: [User]?) {
         self.restaurant = restaurant
         self.date = date
         self.owner = owner

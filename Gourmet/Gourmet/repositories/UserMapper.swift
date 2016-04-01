@@ -16,4 +16,11 @@ class UserMapper {
         let photoUrl = snapshot.value.objectForKey("photoUrl") as? String
         return User(name: name, photoUrl: photoUrl)
     }
+    
+    func mapInverse(user: User) -> Dictionary<String, AnyObject> {
+        var dictionary = Dictionary<String, AnyObject>()
+        dictionary["name"] = user.name
+        dictionary["photoUrl"] = user.photoUrl
+        return dictionary
+    }
 }

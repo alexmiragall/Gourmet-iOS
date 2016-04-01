@@ -9,26 +9,19 @@
 import Foundation
 import Firebase
 
-class RestaurantsRepository {
+public class RestaurantsRepository: Repository<Restaurant> {
     
-    let restMapper: RestaurantMapper
+    var restMapper: RestaurantMapper
     
-    init() {
+    override init() {
         restMapper = RestaurantMapper()
     }
     
-    func getRestaurants(callback: [Restaurant] -> Void) {
-        let firebase = Firebase(url: "https://tuenti-restaurants.firebaseio.com/restaurants")
-        NSLog("Opening Resto")
-        firebase.observeEventType(.Value,
-            withBlock: { snapshot in
-                var restaurants = [Restaurant]()
-                for child in (snapshot.children.allObjects as? [FDataSnapshot])! {
-                    let restaurant: Restaurant = self.restMapper.map(child)
-                    restaurants.append(restaurant)
-                }
-                
-                callback(restaurants)
-        })
+    override func getUrl() -> String {
+        return "https://tuenti-restaurants.firebaseio.com/restaurants"
+    }
+    
+    override func map(snapshot: FDataSnapshot) -> Restaurant? {
+        return restMapper.map(snapshot)
     }
 }

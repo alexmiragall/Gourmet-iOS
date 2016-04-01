@@ -8,49 +8,18 @@
 import Foundation
 import Firebase
 
-public protocol EventRepositoryListener {
-    func addedEvent(event: Event)
-    func removedEvent(event: Event)
-}
-
-public class EventRepository {
+public class EventRepository: Repository<Event> {
     let eventMapper: EventMapper
-    var listener: EventRepositoryListener
     
-    init(listener: EventRepositoryListener) {
+    override init() {
         eventMapper = EventMapper()
-        self.listener = listener
-        
-        initListener()
     }
     
-    func getEvents(callback: [Event] -> Void) {
-        let firebase = Firebase(url: "https://tuenti-restaurants.firebaseio.com/events")
-        NSLog("Opening Events")
-        firebase.observeEventType(.Value,
-            withBlock: { snapshot in
-                var events = [Event]()
-                for child in (snapshot.children.allObjects as? [FDataSnapshot])! {
-                    let event = self.eventMapper.map(child)
-                    events.append(event)
-                }
-                
-                callback(events)
-        })
+    override func getUrl() -> String {
+        return "https://tuenti-restaurants.firebaseio.com/events"
     }
     
-    func initListener() {
-        let firebase = Firebase(url: "https://tuenti-restaurants.firebaseio.com/events")
-        firebase.observeEventType( .ChildAdded,
-            withBlock: { snapshot in
-                let event = self.eventMapper.map(snapshot)
-                self.listener.addedEvent(event)
-        })
-        
-        firebase.observeEventType( .ChildRemoved,
-            withBlock: { snapshot in
-                let event = self.eventMapper.map(snapshot)
-                self.listener.removedEvent(event)
-        })
+    override func map(snapshot: FDataSnapshot) -> Event {
+        return eventMapper.map(snapshot)
     }
 }

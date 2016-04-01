@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class User {
+public struct User: JSONAble {
     var name: String
     var photoUrl: String?
     

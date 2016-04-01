@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EventRepositoryListener {
+class EventTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RepositoryCallback {
 
     @IBOutlet
     var tableView: UITableView!
@@ -19,10 +19,9 @@ class EventTabViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventRepository = EventRepository(listener: self)
+        eventRepository = EventRepository()
+        eventRepository.register(self)
         let nib = UINib(nibName: "EventTableViewCell", bundle: nil)
-        //tableView.rowHeight = UITableViewAutomaticDimension
-        //tableView.estimatedRowHeight = 250.0
         tableView.registerNib(nib, forCellReuseIdentifier: EventTableViewCell.name)
     }
 
@@ -37,7 +36,7 @@ class EventTabViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:EventTableViewCell = self.tableView.dequeueReusableCellWithIdentifier(EventTableViewCell.name) as! EventTableViewCell
         let event: Event = self.events[indexPath.row]
-        let date = NSDate(timeIntervalSince1970: NSNumber(integer: event.date).doubleValue / 1000)
+        let date = NSDate(timeIntervalSince1970: event.date / 1000)
         cell.loadItem(title: event.restaurant.name!,subtitle: String(format: "Created by %@ at %@", event.owner.name, date), description: event.comment, image: event.restaurant.photo, completion: { cell.setNeedsLayout() })
         return cell
     }   
@@ -48,13 +47,13 @@ class EventTabViewController: UIViewController, UITableViewDelegate, UITableView
         print("You selected cell #\(indexPath.row)!")
     }
     
-    func addedEvent(event: Event) {
-        self.events.append(event)
+    func addedItem<T>(item: T) {
+        self.events.append(item as! Event)
         self.tableView.reloadData()
     }
     
-    func removedEvent(event: Event) {
-        if let index = self.events.indexOf(event) {
+    func removedItem<T>(item: T) {
+        if let index = self.events.indexOf(item as! Event) {
             self.events.removeAtIndex(index)
             self.tableView.reloadData()
         }
