@@ -11,7 +11,8 @@ import MapKit
 import Firebase
 import AlamofireImage
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate, GIDSignInUIDelegate
+{
     
     @IBOutlet
     var mapView: MKMapView!
@@ -24,7 +25,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var restaurantRepository: RestaurantsRepository!
     
     var items: [Restaurant] = []
-
+    
+    var userManager = UserManager.instance
+    
     @IBAction func viewChanged(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             tableView.hidden = true
@@ -37,6 +40,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userManager.signIn(self, callback: { (error, errorType) in
+            if (error) {
+                print("Error login: \(errorType)")
+            } else {
+                print("Success login")
+            }
+        })
         restaurantRepository = RestaurantsRepository()
         let nib = UINib(nibName: "RestaurantTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: RestaurantTableViewCell.name)

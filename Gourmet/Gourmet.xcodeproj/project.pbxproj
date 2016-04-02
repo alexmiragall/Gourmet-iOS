@@ -18,6 +18,9 @@
 		C15267BF1C98B22000C06752 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15267BD1C98B22000C06752 /* LaunchScreen.storyboard */; };
 		C15267CA1C98B22000C06752 /* gourmetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15267C91C98B22000C06752 /* gourmetTests.swift */; };
 		C15267D51C98B22000C06752 /* gourmetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15267D41C98B22000C06752 /* gourmetUITests.swift */; };
+		C18CA0F21CAEE9D000C8F77A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C18CA0F11CAEE9D000C8F77A /* GoogleService-Info.plist */; };
+		C18CA0F51CAF47E600C8F77A /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CA0F41CAF47E600C8F77A /* UserManager.swift */; };
+		C18CA0F71CAF51B500C8F77A /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CA0F61CAF51B500C8F77A /* UserRepository.swift */; };
 		C1F2BAE71CA083F100F77866 /* RestaurantsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2BAE61CA083F100F77866 /* RestaurantsRepository.swift */; };
 		C1F2BAEF1CA0B60000F77866 /* RestaurantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2BAEE1CA0B60000F77866 /* RestaurantItem.swift */; };
 		C1FD26F21CAD7E5A001D12D5 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FD26F11CAD7E5A001D12D5 /* Restaurant.swift */; };
@@ -80,6 +83,10 @@
 		C15267D01C98B22000C06752 /* gourmetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gourmetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15267D41C98B22000C06752 /* gourmetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gourmetUITests.swift; sourceTree = "<group>"; };
 		C15267D61C98B22000C06752 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C18CA0F11CAEE9D000C8F77A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C18CA0F31CAEEC9100C8F77A /* gourmet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gourmet-Bridging-Header.h"; sourceTree = "<group>"; };
+		C18CA0F41CAF47E600C8F77A /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		C18CA0F61CAF51B500C8F77A /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepository.swift; path = repositories/UserRepository.swift; sourceTree = "<group>"; };
 		C1F2BAE61CA083F100F77866 /* RestaurantsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantsRepository.swift; path = repositories/RestaurantsRepository.swift; sourceTree = "<group>"; };
 		C1F2BAEE1CA0B60000F77866 /* RestaurantItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantItem.swift; sourceTree = "<group>"; };
 		C1FD26F11CAD7E5A001D12D5 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Restaurant.swift; path = models/Restaurant.swift; sourceTree = "<group>"; };
@@ -190,6 +197,7 @@
 		C15267B11C98B22000C06752 /* gourmet */ = {
 			isa = PBXGroup;
 			children = (
+				C18CA0F11CAEE9D000C8F77A /* GoogleService-Info.plist */,
 				C1FD27011CAD7E8B001D12D5 /* viewcontrollers */,
 				C10363BF1CA4900700591AFC /* models */,
 				C1F2BAE91CA0865700F77866 /* views */,
@@ -201,6 +209,8 @@
 				C15267C01C98B22000C06752 /* Info.plist */,
 				C1F2BAEE1CA0B60000F77866 /* RestaurantItem.swift */,
 				C1FD27101CAE992B001D12D5 /* JSONAble.swift */,
+				C18CA0F31CAEEC9100C8F77A /* gourmet-Bridging-Header.h */,
+				C18CA0F41CAF47E600C8F77A /* UserManager.swift */,
 			);
 			path = gourmet;
 			sourceTree = "<group>";
@@ -234,6 +244,7 @@
 				C10363BB1CA48F8600591AFC /* EventRepository.swift */,
 				C1FD270A1CAD903C001D12D5 /* SubscriptionsRepository.swift */,
 				C1FD270E1CAE7D86001D12D5 /* SubscriptionMapper.swift */,
+				C18CA0F61CAF51B500C8F77A /* UserRepository.swift */,
 			);
 			name = repositories;
 			sourceTree = "<group>";
@@ -377,6 +388,7 @@
 				C1FD26FA1CAD7E6F001D12D5 /* RestaurantTableViewCell.xib in Resources */,
 				C15267BC1C98B22000C06752 /* Assets.xcassets in Resources */,
 				C15267BA1C98B22000C06752 /* Main.storyboard in Resources */,
+				C18CA0F21CAEE9D000C8F77A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +549,7 @@
 				C1FD27071CAD7EA2001D12D5 /* RestaurantDetailViewController.swift in Sources */,
 				C1FD26F71CAD7E6F001D12D5 /* EventTableView.swift in Sources */,
 				C10363BE1CA48FFD00591AFC /* User.swift in Sources */,
+				C18CA0F71CAF51B500C8F77A /* UserRepository.swift in Sources */,
 				C1FD26FF1CAD7E84001D12D5 /* RestaurantMapper.swift in Sources */,
 				C1FD27091CAD7F6A001D12D5 /* Repository.swift in Sources */,
 				C1F2BAEF1CA0B60000F77866 /* RestaurantItem.swift in Sources */,
@@ -544,6 +557,7 @@
 				C1FD26FE1CAD7E84001D12D5 /* EventMapper.swift in Sources */,
 				C1FD27061CAD7EA2001D12D5 /* FirstViewController.swift in Sources */,
 				C1FD270B1CAD903C001D12D5 /* SubscriptionsRepository.swift in Sources */,
+				C18CA0F51CAF47E600C8F77A /* UserManager.swift in Sources */,
 				C1FD27131CAEBFBF001D12D5 /* SubscriptionTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,6 +703,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexmiragall.gourmet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "gourmet-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -701,6 +716,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexmiragall.gourmet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "gourmet-Bridging-Header.h";
 			};
 			name = Release;
 		};

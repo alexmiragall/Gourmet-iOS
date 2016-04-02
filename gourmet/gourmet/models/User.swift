@@ -9,10 +9,13 @@
 import Foundation
 
 public struct User: JSONAble {
+    //Optional for the moment
+    var id: String?
     var name: String
     var photoUrl: String?
     
-    init(name: String, photoUrl: String?) {
+    init(id: String?, name: String, photoUrl: String?) {
+        self.id = id
         self.name = name
         self.photoUrl = photoUrl
     }

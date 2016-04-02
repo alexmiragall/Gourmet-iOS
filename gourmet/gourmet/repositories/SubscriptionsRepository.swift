@@ -35,9 +35,11 @@ public class SubscriptionsRepository: Repository<Subscription> {
     }
     
     public func addSubscription(restaurant: Restaurant) {
-        let item: Subscription = Subscription(restaurant: restaurant, user: User(name: TEST_USER_NAME, photoUrl: ""))
-        let firebase = getConnection()
-        firebase.childByAutoId().setValue(subscriptionMapper.mapInverse(item) as! AnyObject, andPriority: self.TEST_USER_NAME)
+        if let user = UserManager.instance.getUser() {
+            let item: Subscription = Subscription(restaurant: restaurant, user: user)
+            let firebase = getConnection()
+            firebase.childByAutoId().setValue(subscriptionMapper.mapInverse(item) as! AnyObject, andPriority: self.TEST_USER_NAME)
+        }
     }
     
     public func removeItem(item: Subscription) {
