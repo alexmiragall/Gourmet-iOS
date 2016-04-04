@@ -29,4 +29,13 @@ class EventMapper {
         let event: Event = Event(restaurant: restaurant, date: date, owner: owner, comment: comment, occupants: nil)
         return event
     }
+    
+    func mapInverse(event: Event) -> Dictionary<String, AnyObject> {
+        var dictionary = Dictionary<String, AnyObject>()
+        dictionary["restaurant"] = restMapper.mapInverse(event.restaurant)
+        dictionary["owner"] = userMapper.mapInverse(event.owner)
+        dictionary["date"] = event.date
+        dictionary["comment"] = event.comment
+        return dictionary
+    }
 }

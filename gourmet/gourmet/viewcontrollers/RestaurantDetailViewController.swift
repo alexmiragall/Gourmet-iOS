@@ -47,7 +47,16 @@ class RestaurantDetailViewController: UIViewController, RepositoryCallback {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToCreateRestaurant" {
+            let viewController = segue.destinationViewController as! CreateRestaurantViewController
+            viewController.hidesBottomBarWhenPushed = true
+            viewController.restaurant = self.restaurant
+        }
+    }
+    
     func printRestaurant() {
+        self.title = restaurant.name
         titleLabel.text = restaurant.name
         addressLabel.text = restaurant.address
         descriptionLabel.text = restaurant.description

@@ -21,6 +21,7 @@
 		C18CA0F21CAEE9D000C8F77A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C18CA0F11CAEE9D000C8F77A /* GoogleService-Info.plist */; };
 		C18CA0F51CAF47E600C8F77A /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CA0F41CAF47E600C8F77A /* UserManager.swift */; };
 		C18CA0F71CAF51B500C8F77A /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CA0F61CAF51B500C8F77A /* UserRepository.swift */; };
+		C18CA0F91CAFE93F00C8F77A /* CreateRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CA0F81CAFE93F00C8F77A /* CreateRestaurantViewController.swift */; };
 		C1F2BAE71CA083F100F77866 /* RestaurantsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2BAE61CA083F100F77866 /* RestaurantsRepository.swift */; };
 		C1F2BAEF1CA0B60000F77866 /* RestaurantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2BAEE1CA0B60000F77866 /* RestaurantItem.swift */; };
 		C1FD26F21CAD7E5A001D12D5 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FD26F11CAD7E5A001D12D5 /* Restaurant.swift */; };
@@ -87,6 +88,7 @@
 		C18CA0F31CAEEC9100C8F77A /* gourmet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gourmet-Bridging-Header.h"; sourceTree = "<group>"; };
 		C18CA0F41CAF47E600C8F77A /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		C18CA0F61CAF51B500C8F77A /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepository.swift; path = repositories/UserRepository.swift; sourceTree = "<group>"; };
+		C18CA0F81CAFE93F00C8F77A /* CreateRestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRestaurantViewController.swift; path = viewcontrollers/CreateRestaurantViewController.swift; sourceTree = "<group>"; };
 		C1F2BAE61CA083F100F77866 /* RestaurantsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantsRepository.swift; path = repositories/RestaurantsRepository.swift; sourceTree = "<group>"; };
 		C1F2BAEE1CA0B60000F77866 /* RestaurantItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantItem.swift; sourceTree = "<group>"; };
 		C1FD26F11CAD7E5A001D12D5 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Restaurant.swift; path = models/Restaurant.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				C1FD27031CAD7EA2001D12D5 /* FirstViewController.swift */,
 				C1FD27041CAD7EA2001D12D5 /* RestaurantDetailViewController.swift */,
 				C1FD27121CAEBFBF001D12D5 /* SubscriptionTabViewController.swift */,
+				C18CA0F81CAFE93F00C8F77A /* CreateRestaurantViewController.swift */,
 			);
 			name = viewcontrollers;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				C1F2BAEF1CA0B60000F77866 /* RestaurantItem.swift in Sources */,
 				C1FD27051CAD7EA2001D12D5 /* EventTabViewController.swift in Sources */,
 				C1FD26FE1CAD7E84001D12D5 /* EventMapper.swift in Sources */,
+				C18CA0F91CAFE93F00C8F77A /* CreateRestaurantViewController.swift in Sources */,
 				C1FD27061CAD7EA2001D12D5 /* FirstViewController.swift in Sources */,
 				C1FD270B1CAD903C001D12D5 /* SubscriptionsRepository.swift in Sources */,
 				C18CA0F51CAF47E600C8F77A /* UserManager.swift in Sources */,

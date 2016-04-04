@@ -22,4 +22,9 @@ public class EventRepository: Repository<Event> {
     override func map(snapshot: FDataSnapshot) -> Event {
         return eventMapper.map(snapshot)
     }
+    
+    func addEvent(event: Event) {
+        let firebase = getConnection()
+         firebase.childByAutoId().setValue(eventMapper.mapInverse(event))
+    }
 }
