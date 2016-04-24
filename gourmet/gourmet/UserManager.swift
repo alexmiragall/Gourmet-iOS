@@ -29,6 +29,12 @@ public class UserManager: NSObject, GIDSignInDelegate, GIDSignInUIDelegate {
         return firebase.authData != nil
     }
     
+    public func signInSilently(delegate: GIDSignInUIDelegate, callback: (error: Bool, errorType: String?) -> Void) {
+        GIDSignIn.sharedInstance().uiDelegate = delegate
+        self.callbackSignIn = callback
+        GIDSignIn.sharedInstance().signInSilently()
+    }
+    
     public func signIn(delegate: GIDSignInUIDelegate, callback: (error: Bool, errorType: String?) -> Void) {
         GIDSignIn.sharedInstance().uiDelegate = delegate
         self.callbackSignIn = callback

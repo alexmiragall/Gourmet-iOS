@@ -12,6 +12,8 @@
 		C10363BC1CA48F8600591AFC /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10363BB1CA48F8600591AFC /* EventRepository.swift */; };
 		C10363BE1CA48FFD00591AFC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10363BD1CA48FFD00591AFC /* User.swift */; };
 		C10363C11CA490B400591AFC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10363C01CA490B400591AFC /* Event.swift */; };
+		C144F0FB1CCB8AFE0011A203 /* Res in Resources */ = {isa = PBXBuildFile; fileRef = C144F0FA1CCB8AFE0011A203 /* Res */; };
+		C144F0FD1CCB8F590011A203 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C144F0FC1CCB8F590011A203 /* StartViewController.swift */; };
 		C15267B31C98B22000C06752 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15267B21C98B22000C06752 /* AppDelegate.swift */; };
 		C15267BA1C98B22000C06752 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15267B81C98B22000C06752 /* Main.storyboard */; };
 		C15267BC1C98B22000C06752 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C15267BB1C98B22000C06752 /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		C10363BB1CA48F8600591AFC /* EventRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventRepository.swift; path = repositories/EventRepository.swift; sourceTree = "<group>"; };
 		C10363BD1CA48FFD00591AFC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
 		C10363C01CA490B400591AFC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = models/Event.swift; sourceTree = "<group>"; };
+		C144F0FA1CCB8AFE0011A203 /* Res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Res; sourceTree = "<group>"; };
+		C144F0FC1CCB8F590011A203 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		C15267AF1C98B22000C06752 /* gourmet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gourmet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15267B21C98B22000C06752 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C15267B91C98B22000C06752 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 		C15267B11C98B22000C06752 /* gourmet */ = {
 			isa = PBXGroup;
 			children = (
+				C144F0FA1CCB8AFE0011A203 /* Res */,
 				C18CA0F11CAEE9D000C8F77A /* GoogleService-Info.plist */,
 				C1FD27011CAD7E8B001D12D5 /* viewcontrollers */,
 				C10363BF1CA4900700591AFC /* models */,
@@ -270,6 +275,7 @@
 				C1FD27041CAD7EA2001D12D5 /* RestaurantDetailViewController.swift */,
 				C1FD27121CAEBFBF001D12D5 /* SubscriptionTabViewController.swift */,
 				C18CA0F81CAFE93F00C8F77A /* CreateRestaurantViewController.swift */,
+				C144F0FC1CCB8F590011A203 /* StartViewController.swift */,
 			);
 			name = viewcontrollers;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C144F0FB1CCB8AFE0011A203 /* Res in Resources */,
 				C1FD26F81CAD7E6F001D12D5 /* EventTableViewCell.xib in Resources */,
 				C15267BF1C98B22000C06752 /* LaunchScreen.storyboard in Resources */,
 				C1FD26FA1CAD7E6F001D12D5 /* RestaurantTableViewCell.xib in Resources */,
@@ -551,6 +558,7 @@
 				C15267B31C98B22000C06752 /* AppDelegate.swift in Sources */,
 				C1FD27071CAD7EA2001D12D5 /* RestaurantDetailViewController.swift in Sources */,
 				C1FD26F71CAD7E6F001D12D5 /* EventTableView.swift in Sources */,
+				C144F0FD1CCB8F590011A203 /* StartViewController.swift in Sources */,
 				C10363BE1CA48FFD00591AFC /* User.swift in Sources */,
 				C18CA0F71CAF51B500C8F77A /* UserRepository.swift in Sources */,
 				C1FD26FF1CAD7E84001D12D5 /* RestaurantMapper.swift in Sources */,
